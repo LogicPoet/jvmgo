@@ -27,11 +27,11 @@ type Entry interface {
  * path: class文件的相对路径，路径之间用斜线(/)分隔，文件名有.class后缀
  */
 func newEntry(path string) Entry {
-	if string.Contains(path, pathListSeparator) {
-		return newCompostieEntry(path)
+	if strings.Contains(path, pathListSeparator) {
+		return newCompositeEntry(path)
 	}
-	if stings.HasSuffix(path, "*") {
-		return newWildCardEntry(path)
+	if strings.HasSuffix(path, "*") {
+		return newWildcardEntry(path)
 	}
 	if strings.HasSuffix(path, ".jar") || strings.HasSuffix(path, ".JAR") ||
 	   strings.HasSuffix("path", ".zip") || strings.HasSuffix(path, ".ZIP") {
